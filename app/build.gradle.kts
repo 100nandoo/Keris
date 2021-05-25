@@ -1,10 +1,13 @@
 plugins {
     id("com.android.application")
+    kotlin("android")
+    kotlin("kapt")
     id("kotlin-android")
 }
 
 android {
     compileSdk = Versions.COMPILE_SDK
+
     defaultConfig {
         applicationId = "org.hapley.keris"
         minSdk = Versions.MIN_SDK
@@ -14,7 +17,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-
     }
 
     buildTypes {
@@ -48,15 +50,17 @@ android {
 
 dependencies {
     api(platform(project(":depconstraints")))
+    kapt(platform(project(":depconstraints")))
+    implementation(project(":shared"))
 
     implementation(Libs.KOTLIN_STDLIB)
 
     // Android
+    implementation(Libs.APP_COMPAT)
+    implementation(Libs.CORE_KTX)
     implementation(Libs.MATERIAL)
 
     // Compose
-    implementation(Libs.APP_COMPAT)
-    implementation(Libs.CORE_KTX)
     implementation(Libs.COMPOSE_UI)
     implementation(Libs.COMPOSE_MATERIAL)
     implementation(Libs.COMPOSE_UI_TOOLING)
@@ -64,4 +68,13 @@ dependencies {
 
     // Lifecycle
     implementation(Libs.LIFECYCLE_RUN_TIME)
+
+    debugImplementation(Libs.FLIPPER)
+    debugImplementation(Libs.SOLOADER)
+    debugImplementation(Libs.FLIPPER_LEAK_CANARY)
+    debugImplementation(Libs.FLIPPER_NETWORK)
+
+    debugImplementation(Libs.LEAK_CANARY)
+
+    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
 }

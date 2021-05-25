@@ -1,5 +1,6 @@
 rootProject.name = "Keris"
-include (
+include(
     ":app",
-    ":depconstraints"
+    ":depconstraints",
+    ":shared"
 )

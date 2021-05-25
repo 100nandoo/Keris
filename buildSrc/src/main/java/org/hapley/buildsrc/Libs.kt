@@ -32,8 +32,6 @@ object Libs {
     const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx"
     const val OKHTTP = "com.squareup.okhttp3:okhttp"
-    const val OKHTTP_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
-    const val OKHTTP_MOCK_SERVER = "com.squareup.okhttp3:mockwebserver"
     const val ROOM_COMPILER = "androidx.room:room-compiler"
     const val ROOM_KTX = "androidx.room:room-ktx"
     const val ROOM_RUNTIME = "androidx.room:room-runtime"
@@ -44,12 +42,24 @@ object Libs {
     const val VIEWPAGER2 = "androidx.viewpager2:viewpager2"
     const val ARCH_TESTING = "androidx.arch.core:core-testing"
     const val RETROFIT = "com.squareup.retrofit2:retrofit"
-    const val MOSHI_RETROFIT = "com.squareup.retrofit2:converter-moshi"
-    const val MOSHI_KOTLIN = "com.squareup.moshi:moshi-kotlin"
     const val MOSHI = "com.squareup.moshi:moshi"
+    const val MOSHI_CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen"
+    const val MOSHI_RETROFIT = "com.squareup.retrofit2:converter-moshi"
     const val KOTCHI = "se.ansman.kotshi:api"
     const val KOTCHI_COMPILER = "se.ansman.kotshi:compiler"
     const val DATA_STORE = "androidx.datastore:datastore-preferences"
+
+    // Debug
+    const val FLIPPER = "com.facebook.flipper:flipper"
+    const val SOLOADER = "com.facebook.soloader:soloader"
+    const val FLIPPER_LEAK_CANARY = "com.facebook.flipper:flipper-leakcanary-plugin"
+    const val FLIPPER_NETWORK = "com.facebook.flipper:flipper-network-plugin"
+
+    const val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android"
+
+    const val OKHTTP_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor"
+    const val OKHTTP_MOCK_SERVER = "com.squareup.okhttp3:mockwebserver"
+
     const val COMPOSE_UI = "androidx.compose.ui:ui"
     const val COMPOSE_UI_GRAPHICS = "androidx.compose.ui:ui-graphics"
     const val COMPOSE_UI_TOOLING = "androidx.compose.ui:ui-tooling"
@@ -66,6 +76,8 @@ object Libs {
     const val COMPOSE_TEST = "androidx.compose.ui:ui-test-junit4:1.0.0-beta01"
     const val COMPOSE_PAGING = "androidx.paging:paging-compose"
     const val COMPOSE_VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-compose"
+
+
     const val INSETS = "dev.chrisbanes.accompanist:accompanist-insets"
     const val COIL = "dev.chrisbanes.accompanist:accompanist-coil"
     const val FAKER = "com.github.javafaker:javafaker"

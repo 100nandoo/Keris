@@ -38,7 +38,7 @@ val lifecycleExt = "2.2.0"
 val material = "1.1.0"
 val mockito = "3.3.1"
 val mockitoKotlin = "1.5.0"
-val okhttp = "3.10.0"
+val okhttp = "4.9.1"
 val room = "2.2.6"
 val rules = "1.1.1"
 val runner = "1.2.0"
@@ -50,12 +50,19 @@ val retrofit = "2.9.0"
 val moshi = "1.11.0"
 val kotchi = "2.3.3"
 val datastore = "1.0.0-alpha05"
+
+// Debug
+val flipper = "0.91.1"
+val soloader = "0.10.1"
+val leakCanary = "2.7"
+
 val compose = "1.0.0-beta07"
 val composeNavigation = "1.0.0-alpha10"
 val composeActivity = "1.3.0-alpha06"
 val composeConstraint = "1.0.0-alpha03"
 val composePaging = "1.0.0-alpha08"
 val composeViewModel = "1.0.0-alpha02"
+
 val accompanist = "0.6.0"
 val fragmentKtx = "1.3.2"
 val appCompat = "1.2.0-rc01"
@@ -110,12 +117,20 @@ dependencies {
         api("${Libs.RETROFIT}:$retrofit")
         api("${Libs.MOSHI}:$moshi")
         api("${Libs.MOSHI_RETROFIT}:$retrofit")
-        api("${Libs.MOSHI_KOTLIN}:$moshi")
+        api("${Libs.MOSHI_CODEGEN}:${Versions.MOSHI}")
         api("${Libs.KOTCHI}:$kotchi")
         api("${Libs.KOTCHI_COMPILER}:$kotchi")
         api("${Libs.DATA_STORE}:$datastore")
         api("${Libs.LIFECYCLE_EXTENSION}:$lifecycleExt")
         api("${Libs.LIFECYCLE_RUN_TIME}:$lifecycle")
+
+        api("${Libs.FLIPPER}:$flipper")
+        api("${Libs.SOLOADER}:$soloader")
+        api("${Libs.FLIPPER_LEAK_CANARY}:$flipper")
+        api("${Libs.FLIPPER_NETWORK}:$flipper")
+
+        api("${Libs.LEAK_CANARY}:$leakCanary")
+
         api("${Libs.COMPOSE_UI}:$compose")
         api("${Libs.COMPOSE_UI_GRAPHICS}:$compose")
         api("${Libs.COMPOSE_UI_TOOLING}:$compose")
@@ -132,6 +147,8 @@ dependencies {
         api("${Libs.COMPOSE_ACTIVITY}:$composeActivity")
         api("${Libs.COMPOSE_CONSTRAINT}:$composeConstraint")
         api("${Libs.COMPOSE_NAVIGATION}:$composeNavigation")
+
+
         api("${Libs.INSETS}:$accompanist")
         api("${Libs.COIL}:$accompanist")
         api("${Libs.FAKER}:$faker")
