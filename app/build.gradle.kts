@@ -7,10 +7,11 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("kotlin-android")
+    id("dagger.hilt.android.plugin")
 }
 
 var keystorePropertiesFile = file("../../signing/keystore.properties")
-if (Os.isFamily(Os.FAMILY_WINDOWS)){
+if (Os.isFamily(Os.FAMILY_WINDOWS)) {
     keystorePropertiesFile = file("..\\..\\signing\\keystore.properties")
 }
 val keystoreProperties = Properties()
@@ -28,6 +29,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
     }
 
     signingConfigs {
@@ -61,6 +68,9 @@ android {
         val options = this
         options.jvmTarget = "1.8"
     }
+    kapt {
+        correctErrorTypes = true
+    }
 
     buildFeatures {
         compose = true
@@ -91,12 +101,24 @@ dependencies {
     // Lifecycle
     implementation(Libs.LIFECYCLE_RUN_TIME)
 
+    // Debug
+    debugImplementation(Libs.LEAK_CANARY)
+    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
+
     debugImplementation(Libs.FLIPPER)
     debugImplementation(Libs.SOLOADER)
     debugImplementation(Libs.FLIPPER_LEAK_CANARY)
     debugImplementation(Libs.FLIPPER_NETWORK)
 
-    debugImplementation(Libs.LEAK_CANARY)
+    // Hilt
+    implementation(Libs.HILT_ANDROID)
+    kapt(Libs.HILT_COMPILER)
 
-    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
+    // Unit Tests
+    testImplementation(Libs.HILT_TESTING)
+    kaptTest(Libs.HILT_COMPILER)
+
+    // Instrumentation Tests
+    androidTestImplementation(Libs.HILT_TESTING)
+    kaptAndroidTest(Libs.HILT_COMPILER)
 }

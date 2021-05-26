@@ -1,4 +1,4 @@
-package org.hapley.keris.util
+package org.hapley.shared.util
 
 import android.app.Application
 import com.facebook.flipper.android.AndroidFlipperClient
@@ -9,11 +9,12 @@ import com.facebook.flipper.plugins.leakcanary.LeakCanaryFlipperPlugin
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
+import javax.inject.Inject
 
-object Flipper {
+class Flipper @Inject constructor(app: Application) {
     val networkPlugin = NetworkFlipperPlugin()
 
-    fun init(app: Application) {
+    init {
         SoLoader.init(app, false)
         AndroidFlipperClient.getInstance(app).apply {
             addPlugin(InspectorFlipperPlugin(app, DescriptorMapping.withDefaults()))

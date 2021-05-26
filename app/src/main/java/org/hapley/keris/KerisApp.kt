@@ -1,13 +1,7 @@
 package org.hapley.keris
 
 import android.app.Application
-import org.hapley.keris.util.Flipper
+import dagger.hilt.android.HiltAndroidApp
 
-class KerisApp : Application() {
-    lateinit var flipper: Flipper
-    override fun onCreate() {
-        super.onCreate()
-
-        Flipper.init(this)
-    }
-}
+@HiltAndroidApp
+class KerisApp : Application()
