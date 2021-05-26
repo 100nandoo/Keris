@@ -9,6 +9,6 @@ object Versions {
     const val KOTLIN = "1.4.32"
     const val MOSHI = "1.12.0"
     const val NAVIGATION = "2.3.5"
-    const val HILT = "2.33-beta"
+    const val HILT = "2.35.1"
     const val COMPOSE = "1.0.0-beta07"
 }
