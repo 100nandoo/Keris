@@ -55,6 +55,26 @@ dependencies {
     implementation(Libs.KOTLIN_STDLIB)
     api(Libs.COROUTINES)
 
-    // Unit tests
+    // Debug
+    debugImplementation(Libs.LEAK_CANARY)
+    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
+
+    debugImplementation(Libs.FLIPPER)
+    debugImplementation(Libs.SOLOADER)
+    debugImplementation(Libs.FLIPPER_LEAK_CANARY)
+    debugImplementation(Libs.FLIPPER_NETWORK)
+
+    // Hilt
+    implementation(Libs.HILT_ANDROID)
+    kapt(Libs.HILT_COMPILER)
+
+    // Unit Tests
     testImplementation(Libs.JUNIT)
+
+    testImplementation(Libs.HILT_TESTING)
+    kaptTest(Libs.HILT_COMPILER)
+
+    // Instrumentation Tests
+    androidTestImplementation(Libs.HILT_TESTING)
+    kaptAndroidTest(Libs.HILT_COMPILER)
 }
