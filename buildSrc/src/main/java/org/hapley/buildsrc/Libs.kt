@@ -77,6 +77,7 @@ object Libs {
     const val COMPOSE_PAGING = "androidx.paging:paging-compose"
     const val COMPOSE_VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-compose"
 
+    const val FRAGMENT_VIEW_BINDING = "com.github.Zhuinden:fragmentviewbindingdelegate-kt"
 
     const val INSETS = "dev.chrisbanes.accompanist:accompanist-insets"
     const val COIL = "dev.chrisbanes.accompanist:accompanist-coil"

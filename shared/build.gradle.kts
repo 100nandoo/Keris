@@ -29,6 +29,10 @@ android {
         val options = this
         options.jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {

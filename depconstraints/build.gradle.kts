@@ -63,6 +63,8 @@ val composeConstraint = "1.0.0-alpha03"
 val composePaging = "1.0.0-alpha08"
 val composeViewModel = "1.0.0-alpha02"
 
+val fragmentViewBinding = "1.0.0"
+
 val accompanist = "0.6.0"
 val fragmentKtx = "1.3.2"
 val appCompat = "1.2.0-rc01"
@@ -148,6 +150,7 @@ dependencies {
         api("${Libs.COMPOSE_CONSTRAINT}:$composeConstraint")
         api("${Libs.COMPOSE_NAVIGATION}:$composeNavigation")
 
+        api("${Libs.FRAGMENT_VIEW_BINDING}:$fragmentViewBinding")
 
         api("${Libs.INSETS}:$accompanist")
         api("${Libs.COIL}:$accompanist")
