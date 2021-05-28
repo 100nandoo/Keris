@@ -74,6 +74,7 @@ android {
 
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE
@@ -99,7 +100,14 @@ dependencies {
     implementation(Libs.COMPOSE_ACTIVITY)
 
     // Lifecycle
+    implementation(Libs.LIFECYCLE_COMPILER)
+    implementation(Libs.LIFECYCLE_LIVE_DATA_KTX)
+    implementation(Libs.LIFECYCLE_VIEW_MODEL_KTX)
+    implementation(Libs.LIFECYCLE_EXTENSION)
     implementation(Libs.LIFECYCLE_RUN_TIME)
+
+    // Others
+    implementation(Libs.FRAGMENT_VIEW_BINDING)
 
     // Debug
     debugImplementation(Libs.LEAK_CANARY)

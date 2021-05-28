@@ -72,7 +72,7 @@ class RemoteKerisApiTest {
     @Test
     fun `get item test`() = runBlocking {
         val id = 27273724
-        val getItem = api.getItem(id)
+        val getItem = api.getItemDetail(id)
         assertEquals(id, getItem.id)
     }
 }

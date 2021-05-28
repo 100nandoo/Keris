@@ -6,11 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -33,6 +33,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+//    private val binding by viewBinding(MainActivityBinding::inflate)
+
     @Inject
     lateinit var kerisApi: KerisApi
 
@@ -54,7 +56,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun StoriesCard(idList: List<String>) {
-    LazyColumn {
+    val scrollState = rememberLazyListState()
+
+    LazyColumn(state = scrollState) {
         items(idList) { id ->
             Story(id)
             Divider(color = Color.LightGray)

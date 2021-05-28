@@ -26,7 +26,7 @@ interface KerisApi {
     suspend fun getJobStories(): List<Int>
 
     @GET("/v0/item/{id}.json")
-    suspend fun getItem(
+    suspend fun getItemDetail(
         @Path("id") id: Int
     ): Item
 
