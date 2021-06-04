@@ -94,10 +94,12 @@ dependencies {
     implementation(Libs.MATERIAL)
 
     // Compose
-    implementation(Libs.COMPOSE_UI)
-    implementation(Libs.COMPOSE_MATERIAL)
-    implementation(Libs.COMPOSE_UI_TOOLING)
     implementation(Libs.COMPOSE_ACTIVITY)
+    implementation(Libs.COMPOSE_ICON)
+    implementation(Libs.COMPOSE_MATERIAL)
+    implementation(Libs.COMPOSE_NAVIGATION)
+    implementation(Libs.COMPOSE_UI)
+    implementation(Libs.COMPOSE_UI_TOOLING)
 
     // Lifecycle
     implementation(Libs.LIFECYCLE_COMPILER)
@@ -108,6 +110,7 @@ dependencies {
 
     // Others
     implementation(Libs.FRAGMENT_VIEW_BINDING)
+    implementation(Libs.COIL)
 
     // Debug
     debugImplementation(Libs.LEAK_CANARY)

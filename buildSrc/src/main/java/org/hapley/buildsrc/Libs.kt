@@ -79,8 +79,8 @@ object Libs {
 
     const val FRAGMENT_VIEW_BINDING = "com.github.Zhuinden:fragmentviewbindingdelegate-kt"
 
-    const val INSETS = "dev.chrisbanes.accompanist:accompanist-insets"
-    const val COIL = "dev.chrisbanes.accompanist:accompanist-coil"
+    const val INSETS = "com.google.accompanist:accompanist-insets"
+    const val COIL = "com.google.accompanist:accompanist-coil"
     const val FAKER = "com.github.javafaker:javafaker"
     const val HILT_BINDER = "com.paulrybitskyi:hilt-binder"
     const val HILT_BINDER_COMPILER = "com.paulrybitskyi:hilt-binder-compiler"

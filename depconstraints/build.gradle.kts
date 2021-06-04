@@ -65,7 +65,7 @@ val composeViewModel = "1.0.0-alpha02"
 
 val fragmentViewBinding = "1.0.0"
 
-val accompanist = "0.6.0"
+val accompanist = "0.11.1"
 val fragmentKtx = "1.3.2"
 val appCompat = "1.2.0-rc01"
 val faker = "1.0.2"
