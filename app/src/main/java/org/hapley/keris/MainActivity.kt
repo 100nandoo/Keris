@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,9 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import org.hapley.keris.ui.component.TextPoint
 import org.hapley.keris.ui.theme.KerisTheme
 import org.hapley.shared.network.KerisApi
@@ -39,19 +41,30 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        lifecycleScope.launch {
-            val response = kerisApi.getTopStories().map {  }
-            setContent {
-                KerisTheme {
-                    // A surface container using the 'background' color from the theme
-                    Surface(color = MaterialTheme.colors.background) {
-//                        StoriesCard(response)
-                    }
-                }
-            }
+        setContent {
+            KerisAppComposable()
         }
+    }
+}
+
+@Composable
+fun KerisAppComposable() {
+    KerisTheme {
+        val navController = rememberNavController()
+        KerisNavHost(navController)
+    }
+}
+
+object Route {
+    const val LISTING = "listing"
+    const val DETAIL = "detail"
+}
+
+@Composable
+fun KerisNavHost(navHostController: NavHostController) {
+    NavHost(navController = navHostController, startDestination = Route.LISTING) {
+        composable(Route.LISTING) { Story(navController = navHostController, uiStory = uiStory) }
+        composable(Route.DETAIL) { Story(navController = navHostController, uiStory = uiStory) }
     }
 }
 
@@ -66,7 +79,7 @@ fun StoriesCard(uiStoryList: List<UiStory>) {
 
     LazyColumn(state = scrollState) {
         items(uiStoryList) { uiStory ->
-            Story(uiStory)
+//            Story(uiStory)
             Divider(color = Color.LightGray)
         }
     }
@@ -80,7 +93,7 @@ data class UiStory(
 )
 
 @Composable
-fun Story(uiStory: UiStory) {
+fun Story(navController: NavController, uiStory: UiStory) {
     var isSelected by remember { mutableStateOf(false) }
     Row(
         modifier = Modifier
@@ -111,7 +124,8 @@ fun Story(uiStory: UiStory) {
 @Preview(showBackground = true)
 @Composable
 fun StoryPreview() {
-    Story(uiStory = uiStory)
+    val navController = rememberNavController()
+    Story(navController, uiStory)
 }
 
 @Preview(showBackground = true)
